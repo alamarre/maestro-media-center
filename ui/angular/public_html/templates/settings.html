@@ -1,0 +1,13 @@
+<div id="container">
+    <a ng-href="/">Main Menu</a>
+    <form name="form" class="css-form" novalidate>
+        Allow remote control: <input class="checkbox" type="checkbox" ng-change="allowRemote(this)" ng-model="settings.allowRemote" required />
+        <div ng-show="settings.allowRemote">What other people see this as: <input ng-blur="setRemoteHost(this)" type="text" ng-model="settings.remoteHost" required /></div>
+        <br />
+        Play to other device: <input class="checkbox" type="checkbox" ng-model="settings.playRemote" required />
+        <div ng-show="settings.playRemote">
+            <button  ng-click="connectChromecast()">Send to Chromecast</button>
+            <button  ng-repeat="(host, friendlyName) in hosts" ng-click="setHost(host)" ng-bind="friendlyName"></button>
+        </div>
+    </form>
+</div>

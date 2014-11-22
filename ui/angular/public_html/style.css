@@ -1,0 +1,126 @@
+html, body, #wrapper {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    
+    background: #000 url('https://unsplash.imgix.net/14/unsplash_524000a90aaad_1.JPG?q=75&fm=jpg&s=9305563c74d318288ada6e064cd3f176') no-repeat center center fixed;
+    background-size: cover;
+    font-size: 40px;
+    color: #DDD;
+}
+
+/*body {
+    background: #000 url('https://unsplash.imgix.net/14/unsplash_524000a90aaad_1.JPG?q=75&fm=jpg&s=9305563c74d318288ada6e064cd3f176') no-repeat center center fixed;
+    background-size: cover;
+    color: #DDD;
+    font-size: 40px;
+    margin: 0;
+    padding: 20px 40px;
+}*/
+
+#container {
+    padding: 20px 40px;
+}
+
+#overlay {
+    background: #000;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.list li {
+    margin: 2px 0;
+    padding: 0 20px;
+}
+.list li:hover {
+    background: rgba(0,0,0,0.2);
+}
+.list li a {
+    color: #DDD;
+    display: block;
+    text-decoration: none;
+    text-shadow: 2px 1px #000;
+}
+.list li a:hover {
+    color: #FFF;
+}
+
+
+.remoteButton {
+    border: none;
+    border: 5px solid #ddd;
+    background-color: transparent;
+    color: #ddd;
+    margin: 15px;
+    padding: 0;
+    width: 100px;
+    height: 100px;
+    /*position: relative;
+    text-align: center;
+    line-height: 144px;*/
+    border-radius: 50%;
+}
+.remoteButton:hover {
+    border-color: #FFF;
+    color: #FFF;
+    cursor: pointer;
+}
+.remoteButton:active {
+    border-color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.2);
+}
+.remoteButton:focus {
+    outline: 0;
+}
+/*.toggleVisibility {
+    position:absolute;
+    margin-left:-50px;
+    bottom:0px;
+    left:50%;
+}*/
+
+#wrapper {
+    height: 100%;
+    display: table;
+}
+.something {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center
+}
+.fixed {
+    height: 100px;
+    display: table-row;
+}
+
+.remaining {
+    display: table-row; 
+}
+
+.checkbox {
+    width: 30px;
+    height: 30px;
+}
+.settingsWrapper {
+    display: table;
+}
+.allowRemote {
+    display: table-row;
+}
+.playRemote {
+    display: table-row;
+}
+.column {
+    display: table-cell;
+    border: 1px solid #ff0033;
+}
