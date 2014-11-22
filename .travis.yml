@@ -9,8 +9,7 @@ script:
 - ./bundle.sh $TRAVIS_BUILD_NUMBER
 deploy:
   provider: releases
-  user: "alamarre"
-  password: $GITHUB_PASS
+  api-key: $GITHUB_KEY
   file: "maestro.zip"
   skip_cleanup: true
   on:
