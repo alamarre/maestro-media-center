@@ -1,4 +1,4 @@
 target/
-videos/
-configuration/
+/videos/
+/configuration/
 /ui/chromecast/nbproject/private/
