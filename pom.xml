@@ -15,6 +15,7 @@
         <module>libraries/omny-server</module>
         <module>libraries/omny-storage</module>
         <module>services/maestro-core-service</module>
+        <module>maestro-socket-server</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
