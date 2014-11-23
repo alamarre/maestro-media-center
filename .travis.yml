@@ -13,4 +13,5 @@ deploy:
   file: "maestro.zip"
   skip_cleanup: true
   on:
-    repo: alamarre/maestro-media-center
+    tags: true
+    all_branches: true
