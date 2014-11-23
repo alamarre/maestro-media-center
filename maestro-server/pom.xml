@@ -111,7 +111,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>ca.omny.all.OmnyAllInOneServer</mainClass>
+                            <mainClass>org.maestromedia.all.MaestroAllInOneServer</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
