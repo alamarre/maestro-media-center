@@ -24,7 +24,7 @@ public class SocketServer {
         if (System.getenv("maestro_socket_port") != null) {
             socketServerPort = Integer.parseInt(System.getenv("maestro_socket_port"));
         }
-        Server socketServer = new Server();
+        socketServer = new Server();
         ServerConnector connector = new ServerConnector(socketServer);
         connector.setPort(socketServerPort);
         socketServer.addConnector(connector);

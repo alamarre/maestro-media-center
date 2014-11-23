@@ -9,6 +9,7 @@ settings.controller('SettingsController', ['$scope','chromecast','remoteManager'
     var promise = remoteManager.getHosts();
     promise.then(function(hosts) {
         $scope.hosts = hosts;
+        $scope.noHosts = Object.keys(hosts).length==0;
     });
     $scope.connectChromecast = function() {
         chromecast.launch();
