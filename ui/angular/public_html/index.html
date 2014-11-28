@@ -37,7 +37,7 @@
         
 </head>
 <body ng-keypress="handleKeypress($event)">
-    <div ng-view style="height: 100%;"></div>
+    <div ng-view style="height: 100%; overflow: scroll;"></div>
     <div ng-show="Page.isHidden()" id="overlay"></div>
 </body>
 </html>
