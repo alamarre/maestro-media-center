@@ -35,7 +35,7 @@ public class UiHandler extends AbstractHandler {
         
         response.addHeader("Access-Control-Allow-Origin", "*");
         response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
-        response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
+        response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept, Accept-Encoding, Range");
         response.addHeader("Access-Control-Max-Age", "1728000");
         
         String requestUrl = request.getRequestURI();
