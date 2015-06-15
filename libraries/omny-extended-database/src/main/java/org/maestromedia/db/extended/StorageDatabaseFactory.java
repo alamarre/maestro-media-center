@@ -15,7 +15,7 @@ public class StorageDatabaseFactory implements IDocumentQuerierFactory {
     @Override
     public IDocumentQuerier getInstance() {
         String dbType = System.getenv("maestro_db_type");
-        if(dbType!=null && dbType.equals("storage")) {
+        if(dbType==null || dbType.equals("storage")) {
             if(db==null) {
                 db = new StorageBasedDatabase();
                 db.setStorage(storage);

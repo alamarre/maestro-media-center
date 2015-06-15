@@ -4,6 +4,9 @@ window.onload = function() {
     window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
     var bus = window.castReceiverManager.getCastMessageBus('urn:x-cast:maestro');
     bus.onMessage = onInitMessage;
+    
+    bus = window.castReceiverManager.getCastMessageBus("urn:x-cast:com.google.cast.media");
+    bus.onMessage = handleBuiltInMessages;
 
     window.castReceiverManager.start();
 }
@@ -33,6 +36,14 @@ function getValidServerUrl(serverUrls, callback) {
             getValidServerUrl(serverUrls,callback);
         }
     });
+}
+
+function handleBuiltInMessages(message) {
+    if(message.data.type=="PAUSE") {
+        video.pause();
+    } else if(message.data.type=="PLAY") {
+        video.play();
+    }
 }
 
 function onInitMessage(event) {
@@ -132,6 +143,7 @@ function playVideo(index) {
     $(source).attr("src", src);
     $(video).append(source);
 
+    video.load();
     video.play();
 }
 

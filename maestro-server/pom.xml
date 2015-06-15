@@ -65,6 +65,12 @@
         </dependency>
         <dependency>
             <groupId>org.maestromedia</groupId>
+            <artifactId>ExtendedDatabase</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.maestromedia</groupId>
             <artifactId>maestro-socket</artifactId>
             <version>1.0</version>
             <type>jar</type>

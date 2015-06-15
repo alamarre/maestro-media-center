@@ -14,7 +14,16 @@ public class QuerierFactory {
     Postgres postgres = new Postgres();
 
     IDocumentQuerier overrideInstance;
+    
+    @Inject
+    MaestroLogger logger;
+    
+    Instance<IDocumentQuerierFactory> factories;
 
+    public QuerierFactory() {
+        
+    }
+  
     @Inject
     public QuerierFactory(MaestroLogger logger, Instance<IDocumentQuerierFactory> factories) {
         String postgresConfig = System.getenv("postgres");
@@ -28,6 +37,11 @@ public class QuerierFactory {
                 break;
             }
         }
+    }
+
+    @Inject
+    public void setFactories(Instance<IDocumentQuerierFactory> factories) {
+        this.factories = factories;
     }
 
     public void setOverrideInstance(IDocumentQuerier overrideInstance) {
@@ -44,7 +58,13 @@ public class QuerierFactory {
         if (postgres.getConnectionInfo() != null) {
             return postgres;
         }
-
+        for (IDocumentQuerierFactory factory : factories) {
+            overrideInstance = factory.getInstance();
+            if (overrideInstance != null) {
+                return overrideInstance;
+            }
+        }
+        
         return CouchFactory.getQuerier();
 
     }

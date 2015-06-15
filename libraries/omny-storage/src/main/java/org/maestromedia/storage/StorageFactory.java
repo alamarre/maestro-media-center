@@ -24,8 +24,11 @@ public class StorageFactory {
     public IStorage getStorage(MaestroLogger logger) {
         String storageSystemName = configurationReader.getSimpleConfigurationString("storageSystem");
         
-        if(storageSystemName.equals("local")) {
+        if(storageSystemName==null||storageSystemName.equals("local")) {
             String rootFolder = configurationReader.getSimpleConfigurationString("localFolder");
+            if(rootFolder == null) {
+                rootFolder = configurationReader.getRootDirectory()+"/storage";
+            }
             LocalStorage localStorage = new LocalStorage(rootFolder);
             return localStorage;
         }

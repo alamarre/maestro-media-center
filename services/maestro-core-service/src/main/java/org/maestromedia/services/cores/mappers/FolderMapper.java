@@ -3,6 +3,7 @@ package org.maestromedia.services.cores.mappers;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -19,11 +20,17 @@ public class FolderMapper {
 
     @Inject
     ConfigurationReader configurationReader;
+    
+    @Inject
+    PlaylistFolderMapper playlistFolderMapper;
 
     public File getLocation(String path) {
         String videoDir = configurationReader.getRootDirectory() + "/videos";
         if(path==null) {
             return new File(videoDir).getAbsoluteFile();
+        }
+        if(path.startsWith("Playlists") && path.split("/").length==4) {
+            path = playlistFolderMapper.getPath(path);
         }
         String[] pathComponents = path.split("/");
         File lnkFile = new File(videoDir + "/" + pathComponents[0] + ".lnk");
@@ -69,6 +76,12 @@ public class FolderMapper {
                     }
                 }
             }
+        }
+        if(path==null||path.isEmpty()) {
+            folders.add("Playlists");
+        } else if(path.startsWith("Playlists")) {
+            files = new ArrayList(playlistFolderMapper.getFiles(path));
+            folders = new ArrayList(playlistFolderMapper.getFolders(path));
         }
         TvShowSort sort = new TvShowSort();
         Collections.sort(files,sort);
