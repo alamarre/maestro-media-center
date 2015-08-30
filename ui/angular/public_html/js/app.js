@@ -19,6 +19,10 @@ var maestroApp = angular.module('maestroApp', [
   'remoteControl'
 ]);
 
+maestroApp.filter('uri', function() {
+    return window.encodeURIComponent;
+});
+
 maestroApp.config(['$routeProvider', '$locationProvider', '$compileProvider', '$controllerProvider',
   function($routeProvider, $locationProvider, $compileProvider, $controllerProvider) {
     window.directiveMaker = $compileProvider;
