@@ -20,7 +20,12 @@ var maestroApp = angular.module('maestroApp', [
 ]);
 
 maestroApp.filter('uri', function() {
-    return window.encodeURIComponent;
+    return function(input) {
+        if(typeof input == "undefined") {
+            return "";
+        }
+        return window.encodeURIComponent(input);
+    };
 });
 
 maestroApp.config(['$routeProvider', '$locationProvider', '$compileProvider', '$controllerProvider',
