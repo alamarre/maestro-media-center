@@ -1,6 +1,6 @@
 language: java
 jdk:
-- openjdk8
+- oraclejdk8
 before_script:
  - chmod +x build-travis.sh
  - chmod +x bundle.sh
